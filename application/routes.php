@@ -32,9 +32,12 @@
 |
 */
 
+Route::controller(Controller::detect());
+
 Route::get('/', function()
 {
-	return View::make('home.index');
+	// dd(Patient::find(1));
+	return View::make('ophthalmology.new');
 });
 
 /*

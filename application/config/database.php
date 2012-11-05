@@ -70,9 +70,9 @@ return array(
 		'mysql' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'database',
+			'database' => 'openemr',
 			'username' => 'root',
-			'password' => '',
+			'password' => 'minadjack',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),

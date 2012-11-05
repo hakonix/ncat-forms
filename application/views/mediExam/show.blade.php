@@ -1,0 +1,1 @@
+This is the /srv/http/ncat_forms/application/views/mediExam/show.blade.php view
