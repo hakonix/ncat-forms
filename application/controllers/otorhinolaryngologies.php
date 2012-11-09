@@ -6,6 +6,8 @@ class Otorhinolaryngologies_Controller extends Base_Controller {
 
 	public function get_index()
     {
+        $patient = Patient::find($id);
+        
 
     }    
 

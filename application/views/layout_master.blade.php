@@ -9,6 +9,9 @@
 </head>
 <body>
 	<div class="container">
+		<div class="page-header">
+			@yield('header')
+		</div>
 		@yield('content')
 	</div>
 	{{HTML::script('js/jquery.js');}}

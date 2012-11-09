@@ -11,7 +11,7 @@ class Create_Ophthalmologies_Table {
 			$t->string('cert_class');
 			$t->string('birth_place');
 			$t->string('application_type');
-			$t->integer('reference_no')->unique();
+			$t->integer('reference_no');
 			$t->string('license_type');
 			$t->date('consent_date');
 			$t->string('examination_category');
@@ -44,8 +44,7 @@ class Create_Ophthalmologies_Table {
 			$t->string('pip_no_error');
 			$t->boolean('acpt');
 			$t->string('acpt_method');
-			$t->boolean('safe');
-			$t->boolean('unsafe');
+			$t->string('colour');
 			$t->string('d_r_eye');
 			$t->string('d_l_eye');
 			$t->string('d_b_eye');
@@ -61,7 +60,7 @@ class Create_Ophthalmologies_Table {
 			$t->string('i_r_eye_correct_s');
 			$t->string('i_r_eye_correct_cl');
 			$t->string('i_l_eye_correct_s');
-			$t->string('i_i_l_eye_correct_cl');
+			$t->string('i_l_eye_correct_cl');
 			$t->string('i_b_eye_correct_s');
 			$t->string('i_b_eye_correct_cl');
 			$t->string('n_r_eye');
@@ -70,7 +69,7 @@ class Create_Ophthalmologies_Table {
 			$t->string('n_r_eye_correct_s');
 			$t->string('n_r_eye_correct_cl');
 			$t->string('n_l_eye_correct_s');
-			$t->string('n_i_l_eye_correct_cl');
+			$t->string('n_l_eye_correct_cl');
 			$t->string('n_b_eye_correct_s');
 			$t->string('n_b_eye_correct_cl');
 			$t->string('sph_r');
@@ -82,7 +81,7 @@ class Create_Ophthalmologies_Table {
 			$t->string('near_r');
 			$t->string('near_l');
 			$t->boolean('are');
-			$t->string('spb');
+			$t->boolean('spb');
 			$t->boolean('spectacles');
 			$t->string('type_spectacles');
 			$t->boolean('contact_lenses');

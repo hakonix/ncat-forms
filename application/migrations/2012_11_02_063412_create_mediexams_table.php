@@ -11,7 +11,7 @@ class Create_MediExams_Table {
 			$t->string('category');
 			$t->decimal('height', 5, 2);
 			$t->decimal('weight', 5, 2);
-			$t->decimal('bmi');
+			$t->decimal('bmi', 5, 2);
 			$t->string('eyes');
 			$t->string('hair');
 			$t->integer('bp');
@@ -20,7 +20,7 @@ class Create_MediExams_Table {
 			$t->integer('pulse_rest');
 			$t->string('pulse_rate');
 			$t->string('pulse_rhythm');
-			$t->string('ce_head')
+			$t->string('ce_head');
 			$t->string('ce_mouth');
 			$t->string('ce_nose');
 			$t->string('ce_ears');
@@ -79,7 +79,7 @@ class Create_MediExams_Table {
 			$t->string('orl');
 			$t->string('x_ray');
 			$t->string('blood');
-			$t->string('pulmonary');
+			$t->string('pulmonary_report');
 			$t->string('eeg');
 			$t->string('others');
 			$t->string('recommendations_fit_class');

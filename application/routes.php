@@ -37,7 +37,7 @@ Route::controller(Controller::detect());
 Route::get('/', function()
 {
 	// dd(Patient::find(1));
-	return View::make('ophthalmology.new');
+	// return View::make('ophthalmology.new');
 });
 
 /*

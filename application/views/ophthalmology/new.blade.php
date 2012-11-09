@@ -1,4 +1,10 @@
 @layout('layout_master')
+
+@section('header')
+	<h1>Ophthalmology
+		<small>New</small>
+	</h1>
+@endsection
 @section('title')
 	Ophthalmology | New
 @endsection
@@ -15,6 +21,11 @@
         <li class=""><a id="n.4" href="#recommend" data-toggle="tab">Examiner's Declaration</a></li>
     </ul>
     {{Form::open('ophthalmologies', 'POST', array('class'=> 'well'));}}
+<!-- Hidden fields -->
+{{Form::hidden("f[user_id]", $user->id);}}
+{{Form::hidden("f[patient_id]", $patient->id);}}
+
+
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="details">
 	        	<div class="row">
@@ -214,213 +225,483 @@
 						    	</td>
 						    </tr>
 						    <tr>
-						    	<td colspan='2'>
+						    	<td>
 									<span>Fusional reserve testing</span>
-									{{Form::select("f[frt]", array('Not performed','Normal','Abnormal'),0);}}					    		
+						    	</td>
+						    	<td>
+									{{Form::select("f[frt]", array('Not performed','Normal','Abnormal'),0);}}	
+						    	</td>
+						    </tr>
+					    </tbody>
+				    </table>
+				    <table class="table table-bordered table-condensed">
+					    <thead>
+						    <tr>
+							    <th colspan='4'>Colour Perception</th>
+						    </tr>
+					    </thead>
+					    <tbody>
+						    <tr>
+						    	<td colspan='2'>
+			{{Form::label("f[pip_type]", 'Pseudo-Isochromatic plates');}}
+						    	</td>
+						    	<td>
+			{{Form::text("f[pip_type]",'', array('placeholder'=>'Type..', 'class'=>'span3'));}}
+						    	</td>
+						    </tr>
+						    <tr>
+						    	<td colspan='2'>
+			{{Form::label("f[pip_no_plate]", 'No. of plates');}}
+			{{Form::text("f[pip_no_plate]");}}
+						    	</td>
+						    	<td>
+			{{Form::label("f[pip_no_error]", 'No. of errors');}}
+			{{Form::text("f[pip_no_error]");}}
+						    	</td>
+						    </tr>
+						    <tr>
+						    	<td colspan='4'>
+									<span>Advanced colour perception testing indicated? &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+									Yes&nbsp&nbsp{{Form::radio("f[acpt]", true, true);}}<span>&nbsp&nbsp&nbsp</span>
+									No&nbsp&nbsp{{Form::radio("f[acpt]", 0);}}
+						    	</td>
+						    </tr>
+						    <tr>
+						    	<td colspan='4'>
+			{{Form::label("f[acpt_method]", 'Method');}}
+			{{Form::text("f[acpt_method]",'', array('class'=>'span5'));}}
+						    	</td>
+						    </tr>
+						    <tr>
+						    	<td colspan='4'>
+									<span>Colour &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+									Safe&nbsp&nbsp{{Form::radio("f[colour]", 'safe', true);}}<span>&nbsp&nbsp&nbsp</span>
+									Unsafe&nbsp&nbsp{{Form::radio("f[colour]", 'unsafe');}}<span>&nbsp&nbsp&nbsp&nbsp</span>
 						    	</td>
 						    </tr>
 					    </tbody>
 				    </table>
 	        	</div>
         	</div>
-
-
-        	<div>
-			{{Form::label("f[pip_type]", 'Pseudo-Isochromatic plates');}}
-			{{Form::text("f[pip_type]");}}
-			<br>
-			{{Form::label("f[pip_no_plate]", 'No. of plates');}}
-			{{Form::text("f[pip_no_plate]");}}
-			<br>
-			{{Form::label("f[pip_no_error]", 'No. of errors');}}
-			{{Form::text("f[pip_no_error]");}}
-			<br>
-			{{Form::label("f[acpt]", 'Advanced colour perception testing indicated?');}}<br>
-			Yes{{Form::radio("f[acpt]", true, true);}}
-			No{{Form::radio("f[acpt]", 0);}}
-			<br>
-			{{Form::label("f[acpt_method]", 'Method');}}
-			{{Form::text("f[acpt_method]");}}
-			<br>
-			{{Form::label("f[safe]", 'Colour SAFE');}}
-			{{Form::checkbox("f[safe]", 'yes');}}
-			<br>
-			{{Form::label("f[unsafe]", 'Colour UNSAFE');}}
-			{{Form::checkbox("f[unsafe]", 'yes');}}
-			<br>
-        	</div>
-
             <div class='row form-actions'>
                 <a onclick="document.getElementById('n.1').click()" class="btn btn-info">← Previous</a>
+                <a onclick="document.getElementById('n.3').click()" class="btn btn-info pull-right">Next →</a>
             </div>    
-            <button onclick="document.getElementById('n.1').click()">previous</button>
         </div>
 
 
         <div class="tab-pane fade" id="visual">
-			Visual acuity <br>
-			Distant vision at 5m/6m <br>
+        	<div class="row">
+        		<div class="span6">
+        			<strong>
+			Visual acuity
+        			</strong>
+        			<table class='table table-bordered table-condensed'>
+        				<thead>
+        					<tr>
+        						<th colspan='3'>
+			Distant vision at 5m/6m
+        						</th>
+        						<th>
+        							Spectacles
+        						</th>
+        						<th>
+        							Contacts
+        						</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<tr>
+        						<td>
 			{{Form::label("f[d_r_eye]", 'Right Eye');}}
-			{{Form::text("f[d_r_eye]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[d_r_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[d_r_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[d_r_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[d_l_eye]", 'Left Eye');}}
-			{{Form::text("f[d_l_eye]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[d_l_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[d_l_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[d_l_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[d_b_eye]", 'Both Eyes');}}
-			{{Form::text("f[d_b_eye]");}}
-			<br>
-			{{Form::label("f[d_r_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[d_r_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[d_r_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[d_r_eye_correct_cl]");}}
-			<br>
-			{{Form::label("f[d_l_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[d_l_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[d_l_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[d_l_eye_correct_cl]");}}
-			<br>
-			{{Form::label("f[d_b_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[d_b_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[d_b_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[d_b_eye_correct_cl]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[d_b_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[d_b_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[d_b_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        				</tbody>
+        			</table>
 
-			Intermediate vision at 1m <br>
+        			<table class='table table-bordered table-condensed'>
+        				<thead>
+        					<tr>
+        						<th colspan='3'>
+			Intermediate vision at 1m
+        						</th>
+        						<th>
+        							Spectacles
+        						</th>
+        						<th>
+        							Contacts
+        						</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<tr>
+        						<td>
 			{{Form::label("f[i_r_eye]", 'Right Eye');}}
-			{{Form::text("f[i_r_eye]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[i_r_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[i_r_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[i_r_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[i_l_eye]", 'Left Eye');}}
-			{{Form::text("f[i_l_eye]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[i_l_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[i_l_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[i_l_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[i_b_eye]", 'Both Eyes');}}
-			{{Form::text("f[i_b_eye]");}}
-			<br>
-			{{Form::label("f[i_r_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[i_r_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[i_r_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[i_r_eye_correct_cl]");}}
-			<br>
-			{{Form::label("f[i_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[i_l_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[i_l_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[i_l_eye_correct_cl]");}}
-			<br>
-			{{Form::label("f[i_b_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[i_b_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[i_b_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[i_b_eye_correct_cl]");}}
-			<br>
-			
-			Near vision at 30-50 <br>
+        						</td>
+        						<td>
+			{{Form::text("f[i_b_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[i_b_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[i_b_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        				</tbody>
+        			</table>
+        		</div>
+        		<div class="span5">
+        			&nbsp
+        			<table class='table table-bordered table-condensed'>
+        				<thead>
+        					<tr>
+        						<th colspan='3'>
+			Near vision at 30-50cm
+        						</th>
+        						<th>
+        							Spectacles
+        						</th>
+        						<th>
+        							Contacts
+        						</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<tr>
+        						<td>
 			{{Form::label("f[n_r_eye]", 'Right Eye');}}
-			{{Form::text("f[n_r_eye]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[n_r_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[n_r_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[n_r_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[n_l_eye]", 'Left Eye');}}
-			{{Form::text("f[n_l_eye]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[n_l_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[n_l_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[n_l_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[n_b_eye]", 'Both Eyes');}}
-			{{Form::text("f[n_b_eye]");}}
-			<br>
-			{{Form::label("f[n_r_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[n_r_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[n_r_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[n_r_eye_correct_cl]");}}
-			<br>
-			{{Form::label("f[n_l_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[n_l_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[n_l_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[n_l_eye_correct_cl]");}}
-			<br>
-			{{Form::label("f[n_b_eye_correct_s]", 'Corrected to');}}
-			{{Form::text("f[n_b_eye_correct_s]");}}
-			<br>
-			{{Form::label("f[n_b_eye_correct_cl]", 'Corrected to');}}
-			{{Form::text("f[n_b_eye_correct_cl]");}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[n_b_eye]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+        							Corrected to
+        						</td>
+        						<td>
+			{{Form::text("f[n_b_eye_correct_s]", '', array('class'=>'span1'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[n_b_eye_correct_cl]", '', array('class'=>'span1'));}}
+        						</td>
+        					</tr>
+        				</tbody>
+        			</table>
+
+        			<table class='table table-bordered table-condensed'>
+        				<thead>
+        					<tr>
+        						<th>
+        							Refraction
+        						</th>
+        						<th>
+        							Sph
+        						</th>
+        						<th>
+        							Cylinder
+        						</th>
+        						<th>
+        							Axis
+        						</th>
+        						<th>
+        							Near(add)
+        						</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<tr>
+        						<td>
 			{{Form::label("f[refraction_r]", 'Right Eye')}}
-			{{Form::text("f[sph_r]")}}
-			{{Form::text("f[cyl_r]")}}
-			{{Form::text("f[axis_r]")}}
-			{{Form::text("f[near_r]")}}
-			<br>
+        						</td>
+        						<td>
+			{{Form::text("f[sph_r]", '', array('class'=>'span1'))}}
+        						</td>
+        						<td>
+			{{Form::text("f[cyl_r]", '', array('class'=>'span1'))}}
+        						</td>
+        						<td>
+			{{Form::text("f[axis_r]", '', array('class'=>'span1'))}}
+        						</td>
+        						<td>
+			{{Form::text("f[near_r]", '', array('class'=>'span1'))}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td>
 			{{Form::label("f[refraction_l]",'Left Eye');}}
-			{{Form::text("f[sph_l]")}}
-			{{Form::text("f[cyl_l]")}}
-			{{Form::text("f[axis_l]")}}
-			{{Form::text("f[near_l]")}}
-			<br>
-			{{Form::label("f[spectacles]",'Spectacles');}}
+        						</td>
+        						<td>
+			{{Form::text("f[sph_l]", '', array('class'=>'span1'))}}
+        						</td>
+        						<td>
+			{{Form::text("f[cyl_l]", '', array('class'=>'span1'))}}
+        						</td>
+        						<td>
+			{{Form::text("f[axis_l]", '', array('class'=>'span1'))}}
+        						</td>
+        						<td>
+			{{Form::text("f[near_l]", '', array('class'=>'span1'))}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td colspan='2'>
+									Actual refraction examined{{Form::checkbox("f[are]", true);}}<span>&nbsp&nbsp&nbsp</span>
+        						</td>
+        						<td colspan='3'>
+									Spectacles prescription based{{Form::checkbox("f[spb]", true);}}
+        						</td>
+        					</tr>
+        				</tbody>
+        			</table>
+	   
+
+
+        		</div>
+        	</div>
+
+        	<div class="row">
+        		<div class="span6">
+        			<table class="table table-bordered table-condensed">
+        				<thead>
+        					<tr>
+        						<th colspan='2'>
+									Spectacles
+        						</th>
+        						<th colspan='2'>
+									Contact lenses
+        						</th>
+        					</tr>
+        				</thead>
+        				<tbody>
+        					<tr>
+        						<td>
 			Yes{{Form::radio("f[spectacles]", true, true);}}
+        						</td>
+        						<td>
 			No{{Form::radio("f[spectacles]", 0);}}
-			<br>
+        						</td>
+        						<td>
+			Yes{{Form::radio("f[contact_lenses]", true, true);}}
+        						</td>
+        						<td>
+			No{{Form::radio("f[contact_lenses]", 0);}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td colspan='2'>
 			{{Form::label("f[type_spectacles]", 'Type');}}
 			{{Form::text("f[type_spectacles]");}}
-			<br>
-			{{Form::label("f[contact_lenses]",'Contact lenses');}}
-			Yes{{Form::radio("f[contact_lenses]", true, true);}}
-			No{{Form::radio("f[contact_lenses]", 0);}}
-			<br>
+        						</td>
+        						<td colspan='2'>
 			{{Form::label("f[type_contact_lenses]", 'Type');}}
 			{{Form::text("f[type_contact_lenses]");}}
-			<br>
-			Intra-ocular pressure <br>
-			{{Form::label("f[iop_right]", 'Right (mmHg)');}}
-			{{Form::text("f[iop_right]");}}
-			<br>
-			{{Form::label("f[iop_left]", 'Left (mmHg)');}}
-			{{Form::text("f[iop_left]");}}
-			<br>
-			{{Form::label("f[iop_method]", 'Method:');}}
-			{{Form::text("f[iop_method]");}}
-			<br>
+        						</td>
+        					</tr>
+        				</tbody>
 
+        			</table>
+        		</div>
+        		<div class="span5">
+        			<strong>Intra-ocular pressure</strong>
+         			<table class="table table-bordered table-condensed">
+        				<tbody>
+        					<tr>
+        						<td>
+			{{Form::text("f[iop_right]", '', array('placeholder'=>'Right(mmHg)','class'=>'span3'));}}
+        						</td>
+        						<td>
+			{{Form::text("f[iop_left]", '', array('placeholder'=>'Left(mmHg)','class'=>'span2'));}}
+        						</td>
+        					</tr>
+        					<tr>
+        						<td colspan='2'>
+									<span>Method: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+									Normal{{Form::radio("f[iop_method]", 'normal', true);}}<span>&nbsp&nbsp&nbsp</span>
+									Abnormal{{Form::radio("f[iop_method]", 'abnormal');}}        							
+        						</td>
+        					</tr>
+        				</tbody>
+        			</table>        			
+        		</div>
+        	</div>
             <div class='form-actions'>
-                <a onclick="document.getElementById('n.1').click()" class="btn btn-info">← Previous</a>
+                <a onclick="document.getElementById('n.2').click()" class="btn btn-info">← Previous</a>
+                <a onclick="document.getElementById('n.4').click()" class="btn btn-info pull-right">Next →</a>
             </div>    
-            <button onclick="document.getElementById('n.1').click()">previous</button>
         </div>
 
         <div class="tab-pane fade" id="recommend">
-			Ophthalmological remarks and recommendation: <br>
-			{{Form::textarea("f[remarks]");}}
-			<br>
-			Examiner's Declaration: <br>
-			I hereby certify that I have personally examined the applicant named in this medical examination report and that this report with any attachment embodies my findings completely and correctly. <br>
+        	<div class="row">
+        		<div class="span10 offset1">
+					<strong>
+					Ophthalmological remarks and recommendation:
+					</strong>
+					<br>
+					{{Form::textarea("f[remarks]", '', array('class'=>'span9', 'rows'=>'3'));}}
+        		</div>
+        	</div>
 
-			{{Form::label("f[declaration_place]", 'Place');}}
-			{{Form::text("f[declaration_place]");}}
-			<br>
-			{{Form::label("f[declaration_date]", 'Date');}}
-			{{Form::text("f[declaration_date]");}}
-			<br>
-			Ophth. Examiner's Name and Address<br>
-			{{Form::label("f[declaration_e_name]", "Name");}}
-			{{Form::text("f[declaration_e_name]");}}
-			<br>
-			{{Form::label("f[declaration_e_address]", "Address");}}
-			{{Form::text("f[declaration_e_address]");}}
-			<br>
-			{{Form::label("f[declaration_e_phone]", "Telephone No.");}}
-			{{Form::text("f[declaration_e_phone]");}}
-			<br>
-			{{Form::label("f[declaration_e_fax]", "Telefax No.");}}
-			{{Form::text("f[declaration_e_fax]");}}
-			<br>
+        	<div class="row">
+        		<div class="span10 offset1">
+	        		<strong>
+					Examiner's Declaration: <br>
+	        		</strong>
+					I hereby certify that I have personally examined the applicant named in this medical examination report and that this report with any attachment embodies my findings completely and correctly. <br>
 
-			{{Form::submit('Submit');}}
+        		</div>
+        	</div>
+        	<hr>
+        	<div class="row">
+        		<div class="span3 offset1">
+        			<strong>
+					{{Form::label("f[declaration_place]", 'Place');}}
+        			</strong>
+					{{Form::text("f[declaration_place]");}}
+					<br>
+					<strong>
+					{{Form::label("f[declaration_date]", 'Date');}}
+					</strong>
+					{{Form::text("f[declaration_date]");}}
+        		</div>
+        		<div class="span7">
+					{{Form::label("f[declaration_e_name]", "Name");}}
+					{{Form::text("f[declaration_e_name]", '', array('class'=>'span6'));}}
+					{{Form::label("f[declaration_e_address]", "Address");}}
+					{{Form::text("f[declaration_e_address]", '',array('class'=>'span6'));}}
+					<div class="row">
+					<div class="span3">
+						{{Form::text("f[declaration_e_phone]",'',array('class'=>'span3', 'placeholder'=>'Telephone No.'));}}
+					</div>
+					<div class="span3">
+						{{Form::text("f[declaration_e_fax]",'',array('class'=>'span3', 'placeholder'=>'Telefax No.'));}}
+					</div>
+					</div>
+        		</div>
+        	</div>
+
 			
 		{{Form::close();}}
 
             <div class='form-actions'>
-                <a onclick="document.getElementById('n.2').click()" class="btn btn-info pull-right">Next →</a>
+                <a onclick="document.getElementById('n.3').click()" class="btn btn-info">← Previous</a>
+				{{Form::submit('         SUBMIT         ', array('class'=>'btn btn-large btn-success btn-submit pull-right'));}}
             </div>    
         </div>
 
@@ -429,22 +710,3 @@
 
 
 @endsection
-
-<!-- 		Schema::create('ophthalmologies', function($t) {
-			$t->increments('id');
-			$t->integer('user_id');
-			$t->integer('patient_id');
-			$t->string('cert_class');
-			$t->string('birth_place');
-			$t->string('application_type');
-			$t->integer('reference_no')->unique();
-			$t->string('license_type');
-
-			$t->string('declaration');
-			$t->string('declaration_place');
-			$t->date('declaration_date');
-			$t->string('declaration_e_name');
-			$t->string('declaration_e_address');
-			$t->string('declaration_e_phone');
-			$t->string('declaration_e_fax');
- -->
