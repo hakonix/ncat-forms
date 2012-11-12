@@ -348,15 +348,15 @@
 			</tr>
 			<tr>
 				<td colspan='4'>
-					Tropia
+					Tropia	<p class="pull-right">{{$form->tropia}}</p>
 				</td>
 				<td colspan='4'>
-					Phoria
+					Phoria	<p class="pull-right">{{$form->phoria}}</p>
 				</td>				
 			</tr>
 			<tr>
 				<td colspan='8'>
-					Fusional Reserve Testing
+					Fusional Reserve Testing <p class="pull-right">{{$form->frt}}</p>
 				</td>
 			</tr>
 		</table>
@@ -371,24 +371,22 @@
 					Pseudo-Isochromatic plates
 				</td>
 				<td colspan='2'>
-					Type
+					Type {{$form->pip_type}}
 				</td>
 			</tr>
 			<tr>
 				<td colspan='3'>
-					No. of plates
+					No. of plates {{$form->pip_no_plate}}
 				</td>
 				<td colspan='3'>
-					No. of Errors
+					No. of Errors {{$form->pip_no_error}}
 				</td>
 			</tr>
 			<tr>
 				<td colspan='6'>
-					Advanced colour perception testing indicated <br>
-					Method:
+					Advanced colour perception testing indicated {{$form->acpt}}<br>
+					Method: {{$form->acpt_method}}
 				</td>
-			</tr>
-			<tr>
 			</tr>
 		</table>
 	</div>
@@ -410,13 +408,16 @@
 					Right eye
 				</td>
 				<td>
+					{{$form->d_r_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->d_r_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->d_r_eye_correct_cl}}
 				</td>
 			</tr>
 			<tr>
@@ -424,13 +425,16 @@
 					Left eye
 				</td>
 				<td>
+					{{$form->d_l_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->d_l_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->d_l_eye_correct_cl}}
 				</td>
 			</tr>
 			<tr>
@@ -438,13 +442,16 @@
 					Both eyes
 				</td>
 				<td>
+					{{$form->d_b_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->d_b_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->d_b_eye_correct_cl}}
 				</td>
 			</tr>
 		</table>
@@ -465,13 +472,16 @@
 					Right eye
 				</td>
 				<td>
+					{{$form->i_r_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->i_r_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->i_r_eye_correct_cl}}
 				</td>
 			</tr>
 			<tr>
@@ -479,27 +489,33 @@
 					Left eye
 				</td>
 				<td>
+					{{$form->i_l_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->i_l_eye_correct_s}}
 				</td>
 				<td colspan='2'>
-				</td>
+					{{$form->i_l_eye_correct_cl}}
+				</td>i_
 			</tr>
 			<tr>
 				<td>
 					Both eyes
 				</td>
 				<td>
+					{{$form->i_b_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->i_b_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->i_b_eye_correct_cl}}
 				</td>
 			</tr>
 		</table>
@@ -520,13 +536,16 @@
 					Right eye
 				</td>
 				<td>
+					{{$form->n_r_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->n_r_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->n_r_eye_correct_cl}}
 				</td>
 			</tr>
 			<tr>
@@ -534,13 +553,16 @@
 					Left eye
 				</td>
 				<td>
+					{{$form->n_l_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->n_l_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->n_l_eye_correct_cl}}
 				</td>
 			</tr>
 			<tr>
@@ -548,13 +570,16 @@
 					Both eyes
 				</td>
 				<td>
+					{{$form->n_b_eye}}
 				</td>
 				<td>
 					Corrected to
 				</td>
 				<td colspan='2'>
+					{{$form->n_b_eye_correct_s}}
 				</td>
 				<td colspan='2'>
+					{{$form->n_b_eye_correct_cl}}
 				</td>
 			</tr>
 		</table>
@@ -581,12 +606,24 @@
 					Right
 				</td>
 				<td>
+					<p>
+						{{$form->sph_r}}
+					</p>
 				</td>
 				<td>
+					<p>
+						{{$form->cyl_r}}
+					</p>
 				</td>
 				<td>
+					<p>
+						{{$form->axis_r}}
+					</p>
 				</td>
 				<td>
+					<p>
+						{{$form->near_r}}
+					</p>
 				</td>
 			</tr>
 			<tr>
@@ -594,20 +631,32 @@
 					Left
 				</td>
 				<td>
+					<p>
+						{{$form->sph_l}}
+					</p>
 				</td>
 				<td>
+					<p>
+						{{$form->cyl_l}}
+					</p>
 				</td>
 				<td>
+					<p>
+						{{$form->axis_l}}
+					</p>
 				</td>
 				<td>
+					<p>
+						{{$form->near_l}}
+					</p>
 				</td>
 			</tr>
 			<tr>
 				<td colspan='3'>
-					Actual refraction examined
+					Actual refraction examined	<p class="pull-right">{{$form->are}}</p>
 				</td>
 				<td colspan='2'>
-					Spectacles prescription based
+					Spectacles prescription based	<p class="pull-right">{{$form->spb}}</p>
 				</td>
 			</tr>
 		</table>
@@ -622,16 +671,26 @@
 			</tr>
 			<tr>
 				<td>
+					@if ($form->spectacles)
+						Yes
+					@else
+						No
+					@endif
 				</td>
 				<td>
+					@if ($form->contact_lenses)
+						Yes
+					@else
+						No
+					@endif
 				</td>
 			</tr>
 			<tr>
 				<td>
-					Type:
+					Type: <p class="pull-right">{{$form->type_spectacles}}</p>
 				</td>
 				<td>
-					Type:
+					Type: <p class="pull-right">{{$form->type_contact_lenses}}</p>
 				</td>
 			</tr>
 		</table>
@@ -639,15 +698,15 @@
 		<table class='table table-striped table-bordered'>
 			<tr>
 				<td>
-					Right (mmHg)
+					Right (mmHg)	<p class="pull-right">{{$form->iop_right}}</p>
 				</td>
 				<td>
-					Left (mmHg)
+					Left (mmHg)	<p class="pull-right">{{$form->iop_left}}</p>
 				</td>
 			</tr>
 			<tr>
 				<td colspan='2'>
-					Method:
+					Method: &nbsp&nbsp{{$form->iop_method}}
 				</td>
 			</tr>
 		</table>
@@ -665,17 +724,19 @@
 		<table class='table table-striped table-bordered'>
 			<tr>
 				<td colspan='3'>
-					I hereby certify that I ave personally examined the applicant named on this medical examination report and that this report with any attachment embodies my findings completely and correctly.
+					I hereby certify that I ave personally examined the applicant named on this medical examination report and that this report with any attachment embodies my findings completely and correctly. <br>
+					<p class="pull-right">{{$form->user->lname}}</p>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					(323) Place and date: <br>
+					{{$form->created_at}}
 				</td>
 				<td rowspan='2'>
-					Ophth. Examiner's Name and Address: <br><br>
-					Telephone No:<br>
-					Telefax No:
+					Ophth. Examiner's Name and Address: <p class="pull-right">{{$form->user->fname}} {{$form->user->lname}}</p><br><br>
+					Telephone No:<p class="pull-right">{{$form->user->phone}}</p><br>
+					Telefax No:<p class="pull-right">{{$form->user->fax}}</p>
 				</td>
 				<td rowspan='2'>
 					AME Stamp with No:
