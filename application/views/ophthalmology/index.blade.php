@@ -17,7 +17,7 @@
 				@foreach ($forms as $form)
 				  <tr>
 				    <td>{{$form->id}}</td>
-				    <td>{{$form->user->lname}}</td>
+				    <td>{{$form->user->lname}} , {{$form->user->fname}} {{$form->user->mname}}</td>
 				    <td>{{ $form->created_at }}</td>
 				    <td>
 				    	<div class='btn-group'>

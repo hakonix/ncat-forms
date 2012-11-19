@@ -26,9 +26,13 @@ class Otorhinolaryngologies_Controller extends Base_Controller {
 
     }    
 
-	public function get_new()
+    public function get_new($pid, $user_id)
     {
+        $user = User::find($user_id);
+        $patient = Patient::find($pid);
 
+        $data = array('user' => $user, 'patient'=> $patient);
+        return View::make('otorhinolaryngology.new', $data);
     }    
 
 	public function put_update()

@@ -2,7 +2,7 @@
 
 @section('header')
 	<h1>Ophthalmology
-		<small>New</small>
+		<small>{{$form->patient->fname}} {{$form->patient->mname}} {{$form->patient->lname}}</small>
 	</h1>
 @endsection
 @section('title')
@@ -21,7 +21,9 @@
 			<tr>
 				<td colspan='4'>
 					(1) Surname: <br>
-					{{$form->patient->lname}}
+					<p class="pull-right">
+						{{$form->patient->lname}}
+					</p>
 				</td>
 				<td colspan='8'>
 					(2) Class of Medical certificate applied for <br>
@@ -31,43 +33,61 @@
 			<tr>
 				<td colspan='4'>
 					(3) Forenames:<br>
-					{{$form->patient->fname}} {{$form->patient->mname}}
+					<p class="pull-right">
+						{{$form->patient->fname}} {{$form->patient->mname}}
+					</p>
 				</td>
 				<td colspan='4'>
 					(4) Previous Surname(s)<br>
-					{{$form->patient->mothersname}}
+					<p class="pull-right">
+						{{$form->patient->mothersname}}
+					</p>
 				</td >
 				<td colspan='4'>
 					(8) Application <br>
-					{{$form->application_type}}
+					<p class="pull-right">
+						{{$form->application_type}}
+					</p>
 				</td>
 			</tr>
 			<tr>
 				<td rowspan='2' colspan='4'>
 					(5) Place and Country of Birth <br>
-					{{$form->birth_place}}
+					<p class="pull-right">
+						{{$form->birth_place}}
+					</p>
 				</td>
 				<td colspan='3'>
 					(6) Date of Birth <br>
-					{{$form->patient->DOB}}
+					<p class="pull-right">
+						{{$form->patient->DOB}}
+					</p>
 				</td>
 				<td colspan='1'>
 					(7) Sex <br>
-					{{$form->patient->sex}}
+					<p class="pull-right">
+						{{$form->patient->sex}}
+					</p>
 				</td>
 				<td>
 					(9) Reference Number <br>
-					{{$form->reference_no}}
+					<p class="pull-right">
+						{{$form->reference_no}}
+					</p>
 				</td>
 			</tr>
 			<tr>
 				<td colspan='4'>
 					(10) Nationality <br>
-					Nigerian
+					<p class="pull-right">
+						Nigerian
+					</p>
 				</td>
 				<td colspan='4'>
 					(11) Type of License desired:
-					{{$form->license_type}}
+					<p class="pull-right">
+						{{$form->license_type}}
+					</p>
 				</td>
 			</tr>
 			<tr>
@@ -499,7 +519,7 @@
 				</td>
 				<td colspan='2'>
 					{{$form->i_l_eye_correct_cl}}
-				</td>i_
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -753,7 +773,4 @@
 
 
 @endsection
-
-
-
 

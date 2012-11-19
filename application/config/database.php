@@ -77,6 +77,16 @@ return array(
 			'prefix'   => '',
 		),
 
+		'mysql_remote' => array(
+			'driver'   => 'mysql',
+			'host'     => 'tunnel.pagodabox.com:3306',
+			'database' => 'openemr',
+			'username' => 'shakira',
+			'password' => 'HAzIlxBO',
+			'charset'  => 'utf8',
+			'prefix'   => '',
+		),
+
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
