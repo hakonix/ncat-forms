@@ -4,17 +4,18 @@ class Ophthalmologies_Controller extends Base_Controller {
 
 	public $restful = true;    
 
-	public function get_index($pid)
+	public function get_index()
     {
-        if(isset($_GET['authId'])) {
-            Session::put('user', $_GET['authId']);
-        }
+        // if(isset($_GET['authId'])) {
+        //     Session::put('user', $_GET['authId']);
+        // }
 
-        $user_id = Session::get('user');
-        $patient = Patient::find($pid);
+        // $user_id = Session::get('user');
+        // $patient = Patient::find($pid);
 
-        $data = array('forms' => $patient->ophthalmologies, 'patient' => $patient, 'user_id' => $user_id);
-        return view('ophthalmology.index', $data);
+        // $data = array('forms' => $patient->ophthalmologies, 'patient' => $patient, 'user_id' => $user_id);
+        // return view('ophthalmology.index', $data);
+    return Redirect::to_action('ophthalmologies@show', array('2'));
     }    
 
 	public function post_index()

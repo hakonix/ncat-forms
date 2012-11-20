@@ -399,13 +399,17 @@
 			</tr>
 			<tr>
 				<td>
-					There is nothing to report
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
 				</td>
 			</tr>
 		</table>
 	</div>
 	<div class="span6">
+		<strong>
 		(419) Pure tone audiometry
+		</strong>
 		<table class='table table-striped table-bordered'>
 			<tr>
 				<th>

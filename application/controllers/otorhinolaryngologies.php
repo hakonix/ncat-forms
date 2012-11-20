@@ -6,9 +6,8 @@ class Otorhinolaryngologies_Controller extends Base_Controller {
 
 	public function get_index()
     {
-        $patient = Patient::find($id);
-        
-
+        // $patient = Patient::find($id);
+        return Redirect::to_action('otorhinolaryngologies@show', array('2'));
     }    
 
 	public function post_index()
