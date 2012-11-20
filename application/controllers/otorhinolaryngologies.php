@@ -16,8 +16,12 @@ class Otorhinolaryngologies_Controller extends Base_Controller {
 
     }    
 
-	public function get_show()
+	public function get_show($id)
     {
+        $form = Ophthalmology::find($id);
+        $data = array('form' => $form);
+        #display a specific client
+        return view('otorhinolaryngology.show', $data);
 
     }    
 

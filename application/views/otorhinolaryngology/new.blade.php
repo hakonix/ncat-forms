@@ -103,7 +103,7 @@
 						    </tr>
 						    <tr>
 						    	<td>
-									{{Form::label("f[ce_nasal]", 'Nasal passages and naso-pharynx (inc. Anterior rhinoscopy');}}
+									{{Form::label("f[ce_nasal]", 'Nasal passages and naso-pharynx (inc. Anterior rhinoscopy)');}}
 						    	</td>
 						    	<td>
 									{{Form::text("f[ce_nasal]");}}
